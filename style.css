@@ -1,0 +1,48 @@
+#screen {
+  aspect-ratio: 16/9;
+  width: 100vw;
+  position: absolute;
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 1;
+}
+body {
+  margin: 0;
+}
+#game {
+  aspect-ratio: inherit;
+  width: 100%;
+  position: absolute;
+}
+#game_background {
+  aspect-ratio: 16/9;
+  width: 100%;
+  position: absolute;
+  background-image: url(img/2108.q703.021.F.m004.c7.mining\ miner\ cartoon.jpg);
+  background-size: 88%;
+}
+#game_foreground {
+  aspect-ratio: inherit;
+  width: 100%;
+  position: absolute;
+}
+#start {
+  aspect-ratio: inherit;
+  width: 100%;
+  position: absolute;
+}
+#game_over {
+  aspect-ratio: inherit;
+  width: 100%;
+  position: absolute;
+}
+#level_complete {
+  aspect-ratio: inherit;
+  width: 100%;
+  position: absolute;
+}
+#game_elements {
+  aspect-ratio: inherit;
+  width: 100%;
+  position: absolute;
+}

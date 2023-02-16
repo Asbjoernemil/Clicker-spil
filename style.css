@@ -25,6 +25,8 @@ body {
   aspect-ratio: inherit;
   width: 100%;
   position: absolute;
+  translate: 10% 31%;
+  z-index: 1;
 }
 #start {
   aspect-ratio: inherit;
@@ -45,4 +47,22 @@ body {
   aspect-ratio: inherit;
   width: 100%;
   position: absolute;
+  z-index: 2;
+}
+#game_elements img {
+  width: 100%;
+}
+#gold_container {
+  width: 10vw;
+  position: absolute;
+}
+#diamond_container {
+  width: 10vw;
+  position: absolute;
+  translate: 500% 100%;
+}
+#coal_container {
+  width: 10vw;
+  position: absolute;
+  translate: 200% 100%;
 }

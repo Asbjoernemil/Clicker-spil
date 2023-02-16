@@ -5,11 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="animations.css" />
   </head>
   <body>
-    <div id="screen">
-      <div id="game">
-        <div id="game_elements">
+    <div id="screen" class="position1">
+      <div id="game" class="position1">
+        <div id="game_elements" class="position1">
           <div id="diamond_container">
             <img
               id="diamond_sprite"
@@ -32,13 +34,15 @@
             />
           </div>
         </div>
-        <div id="game_background"></div>
-        <div id="game_foreground">
+        <div id="game_background" class="position1"></div>
+        <div id="game_foreground" class="position1">
           <img src="img/mining-concept-illustration_1284-8095.png" alt="" />
         </div>
-        <div id="game_ui">
+        <div id="game_ui" class="position1">
           <div id="minecart_container">
-            <img id="minecart_sprite" src="img/mine-cart.png" alt="" />
+            <img id="minecart_sprite1" src="img/mine-cart1.png" alt="" />
+            <img id="minecart_sprite2" src="img/mine-cart1.png" alt="" />
+            <img id="minecart_sprite3" src="img/mine-cart1.png" alt="" />
           </div>
           <div id="dollarsign_container">
             <img
@@ -47,13 +51,14 @@
               alt=""
             />
           </div>
+          <div id="stopwatch_container">
+            <img id="stopwatch_sprite" src="img/stopwatch.png" alt="" />
+          </div>
         </div>
       </div>
-      <div id="start"></div>
-      <div id="game_over"></div>
-      <div id="level complete"></div>
+      <div id="start" class="position1"></div>
+      <div id="game_over" class="position1"></div>
+      <div id="level complete" class="position1"></div>
     </div>
-
-    <link rel="stylesheet" href="style.css" />
   </body>
 </html>

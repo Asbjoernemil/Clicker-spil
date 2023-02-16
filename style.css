@@ -8,6 +8,13 @@
 }
 body {
   margin: 0;
+  width: 100vw;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+.position1 {
+  top: 0;
+  left: 0;
 }
 #game {
   aspect-ratio: inherit;
@@ -25,8 +32,10 @@ body {
   aspect-ratio: inherit;
   width: 100%;
   position: absolute;
-  translate: 10% 31%;
   z-index: 1;
+}
+#game_foreground img {
+  translate: 10% 50%;
 }
 #start {
   aspect-ratio: inherit;
@@ -53,16 +62,48 @@ body {
   width: 100%;
 }
 #gold_container {
-  width: 10vw;
+  width: 5vw;
   position: absolute;
 }
 #diamond_container {
-  width: 10vw;
+  width: 6vw;
   position: absolute;
-  translate: 500% 100%;
 }
 #coal_container {
-  width: 10vw;
+  width: 6vw;
   position: absolute;
-  translate: 200% 100%;
+}
+#game_ui {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  aspect-ratio: inherit;
+  width: 100%;
+  position: absolute;
+  z-index: 3;
+}
+#minecart_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 30vw;
+  grid-column: 3/3;
+}
+#minecart_container img {
+  width: 100%;
+}
+#stopwatch_container {
+  width: 8vw;
+  grid-column: 2/3;
+  grid-row: 1;
+}
+#stopwatch_container img {
+  width: 100%;
+}
+#dollarsign_container {
+  width: 5vw;
+  grid-column: 1/3;
+  grid-row: 1;
+}
+#dollarsign_container img {
+  width: 100%;
 }

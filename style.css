@@ -56,7 +56,7 @@ body {
   aspect-ratio: inherit;
   width: 100%;
   position: absolute;
-  z-index: 2;
+  z-index: 4;
 }
 #game_elements img {
   width: 100%;
@@ -64,14 +64,18 @@ body {
 #gold_container {
   width: 5vw;
   position: absolute;
+  z-index: 5;
+  cursor: pointer;
 }
 #diamond_container {
   width: 6vw;
   position: absolute;
+  z-index: 5;
 }
 #coal_container {
   width: 6vw;
   position: absolute;
+  z-index: 5;
 }
 #game_ui {
   display: grid;

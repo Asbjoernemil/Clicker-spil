@@ -2,4 +2,75 @@
   animation-name: falling1;
   animation-duration: 5s;
   animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes falling1 {
+  0% {
+    transform: translate(50vw, -57vw);
+  }
+  100% {
+    transform: translate(50vw, 57vw);
+  }
+}
+.falling2 {
+  animation-name: falling2;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes falling2 {
+  0% {
+    transform: translate(30vw, -57vw);
+  }
+  100% {
+    transform: translate(30vw, 57vw);
+  }
+}
+.falling3 {
+  animation-name: falling3;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes falling3 {
+  0% {
+    transform: translate(0, -57vw);
+  }
+  100% {
+    transform: translate(0, 57vw);
+  }
+}
+.falling4 {
+  animation-name: falling4;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes falling4 {
+  0% {
+    transform: translate(0, -57vw);
+  }
+  100% {
+    transform: translate(0, 57vw);
+  }
+}
+.falling5 {
+  animation-name: falling5;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes falling5 {
+  0% {
+    transform: translate(0, -57vw);
+  }
+  100% {
+    transform: translate(0, 57vw);
+  }
+}
+.paused {
+  animation-play-state: paused;
+}
+.fadeout {
+  animation-play-state: ;
 }

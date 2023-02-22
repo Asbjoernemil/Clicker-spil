@@ -71,11 +71,13 @@ body {
   width: 6vw;
   position: absolute;
   z-index: 5;
+  cursor: pointer;
 }
 #coal_container {
   width: 6vw;
   position: absolute;
   z-index: 5;
+  cursor: pointer;
 }
 #game_ui {
   display: grid;
@@ -110,4 +112,21 @@ body {
 }
 #dollarsign_container img {
   width: 100%;
+}
+.hidden {
+  opacity: 0;
+}
+#gold_splash {
+  position: absolute;
+}
+
+#coal_splash {
+  position: absolute;
+}
+
+.active_heart {
+  filter: drop-shadow(0 0 6px yellow);
+}
+.broken_heart {
+  filter: grayscale(75%) blur(0.5px);
 }

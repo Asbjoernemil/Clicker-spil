@@ -66,22 +66,26 @@ function clickCoal() {
   document.querySelector("#coal_sprite").classList.add("zoom_out");
   document.querySelector("#coal_splash").classList.add("splash");
 
+  loseLife();
   document
     .querySelector("#coal_splash")
     .addEventListener("animationend", coalGone);
-  life();
 }
 
 /* Der mistes liv ved at trykke på kul */
-function life() {
+function loseLife() {
   displaylife();
   lives--;
 }
 
 function displaylife() {
   console.log("heart broken");
-  document.querySelector("#heart" + lives).classList.remove("active_heart");
-  document.querySelector("#heart" + lives).classList.add("broken_heart");
+  document
+    .querySelector("#minecart_sprite" + lives)
+    .classList.remove("active_heart");
+  document
+    .querySelector("#minecart_sprite" + lives)
+    .classList.add("broken_heart");
 }
 
 function coalGone() {

@@ -12,7 +12,7 @@ body {
   aspect-ratio: 16/9;
   overflow: hidden;
 }
-.position1 {
+.position0 {
   top: 0;
   left: 0;
 }
@@ -61,19 +61,64 @@ body {
 #game_elements img {
   width: 100%;
 }
-#gold_container {
+#gold_container1 {
+  top: 0;
   width: 5vw;
   position: absolute;
   z-index: 5;
   cursor: pointer;
 }
-#diamond_container {
+#gold_container2 {
+  top: 0;
+  width: 5vw;
+  position: absolute;
+  z-index: 5;
+  cursor: pointer;
+}
+#gold_container3 {
+  top: 0;
+  width: 5vw;
+  position: absolute;
+  z-index: 5;
+  cursor: pointer;
+}
+#diamond_container1 {
+  top: 0;
   width: 6vw;
   position: absolute;
   z-index: 5;
   cursor: pointer;
 }
-#coal_container {
+#diamond_container2 {
+  top: 0;
+  width: 6vw;
+  position: absolute;
+  z-index: 5;
+  cursor: pointer;
+}
+#diamond_container3 {
+  top: 0;
+  width: 6vw;
+  position: absolute;
+  z-index: 5;
+  cursor: pointer;
+}
+#coal_container1 {
+  top: 0;
+  width: 6vw;
+  position: absolute;
+  z-index: 5;
+  cursor: pointer;
+}
+#coal_container2 {
+  top: 0;
+  width: 6vw;
+  position: absolute;
+  z-index: 5;
+  cursor: pointer;
+}
+#coal_container3 {
+  top: 0;
   width: 6vw;
   position: absolute;
   z-index: 5;
@@ -128,11 +173,7 @@ body {
 .hidden {
   opacity: 0;
 }
-#gold_splash {
-  position: absolute;
-}
-
-#coal_splash {
+.splash {
   position: absolute;
 }
 

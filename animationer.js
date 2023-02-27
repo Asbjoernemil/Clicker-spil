@@ -7,71 +7,175 @@ window.addEventListener("load", start);
 
 function start() {
   console.log("Spillet starter");
-  document.querySelector("#gold_container").classList.add("falling2");
-  document.querySelector("#coal_container").classList.add("falling3");
-  document.querySelector("#stopwatch_sprite").classList.add("rotate");
 
+  addAnimations();
+
+  addClick();
+}
+
+function addClick() {
   document
-    .querySelector("#gold_container")
+    .querySelector("#gold_container1")
+    .addEventListener("mousedown", clickGold);
+  document
+    .querySelector("#gold_container2")
+    .addEventListener("mousedown", clickGold);
+  document
+    .querySelector("#gold_container3")
     .addEventListener("mousedown", clickGold);
 
   document
-    .querySelector("#coal_container")
+    .querySelector("#coal_container1")
     .addEventListener("mousedown", clickCoal);
+  document
+    .querySelector("#coal_container2")
+    .addEventListener("mousedown", clickCoal);
+  document
+    .querySelector("#coal_container3")
+    .addEventListener("mousedown", clickCoal);
+  document
+    .querySelector("#diamond_container1")
+    .addEventListener("mousedown", clickDiamond);
+  document
+    .querySelector("#diamond_container2")
+    .addEventListener("mousedown", clickDiamond);
+}
+
+function addAnimations() {
+  document
+    .querySelector("#gold_container1")
+    .classList.add("falling" + pickAnimation());
+  document
+    .querySelector("#gold_container2")
+    .classList.add("falling" + pickAnimation());
+  document
+    .querySelector("#gold_container3")
+    .classList.add("falling" + pickAnimation());
+  document
+    .querySelector("#coal_container1")
+    .classList.add("falling" + pickAnimation());
+  document
+    .querySelector("#coal_container2")
+    .classList.add("falling" + pickAnimation());
+  document
+    .querySelector("#coal_container3")
+    .classList.add("falling" + pickAnimation());
+  document
+    .querySelector("#diamond_container1")
+    .classList.add("falling" + pickAnimation());
+  document
+    .querySelector("#diamond_container2")
+    .classList.add("falling" + pickAnimation());
+  document.querySelector("#stopwatch_sprite").classList.add("rotate");
+}
+
+function pickAnimation() {
+  let num = Math.ceil(Math.random() * 5);
+  return num;
 }
 
 /* GULD */
 function clickGold() {
+  let gold = this;
   console.log("clicked");
+
   /* Forhindre at der kan gentages clicks */
-  document
-    .querySelector("#gold_container")
-    .removeEventListener("mousedown", clickGold);
+  gold.removeEventListener("mousedown", clickGold);
 
   /* Animation når der clickes på elementet */
-  document.querySelector("#gold_container").classList.add("paused");
-  document.querySelector("#gold_sprite").classList.add("zoom_out");
-  document.querySelector("#gold_splash").classList.add("splash");
+  gold.classList.add("paused");
+  gold.querySelector(".sprite").classList.add("zoom_out");
+  gold.querySelector(".splash").classList.add("zoom_inout");
+  gold.querySelector(".splash").addEventListener("animationend", goldGone);
 
-  document
-    .querySelector("#gold_splash")
-    .addEventListener("animationend", goldGone);
-  incrementPoints();
+  /* Tilføj points */
+  points += 50;
+  console.log("har nu " + points + " point");
+  displayPoints();
 }
 
 function goldGone() {
-  /* animation restartes*/
+  console.log(this);
 
-  document.querySelector("#gold_container").classList.remove("falling2");
-  document.querySelector("#gold_container").classList.remove("paused");
-  document.querySelector("#gold_container").offsetWidth;
-  document.querySelector("#gold_container").classList.add("falling2");
-  document.querySelector("#gold_sprite").classList.remove("zoom_out");
-  document.querySelector("#gold_splash").classList.remove("splash");
+  /* animation restartes*/
+  let splash = this;
+  let container = this.parentElement;
+  let sprite = container.querySelector(".sprite");
+
+  container.classList.remove(
+    "falling1",
+    "falling2",
+    "falling3",
+    "falling4",
+    "falling5"
+  );
+  container.classList.remove("paused");
+  container.offsetWidth;
+  container.classList.add("falling" + pickAnimation());
+  sprite.classList.remove("zoom_out");
+  splash.classList.remove("zoom_inout");
 
   /* Vi kan clicke igen*/
-  document
-    .querySelector("#gold_container")
-    .addEventListener("mousedown", clickGold);
+  container.addEventListener("mousedown", clickGold);
+}
+/* DIAMANT */
+function clickDiamond() {
+  let diamond = this;
+  console.log("clicked");
+  /* Forhindre at der kan gentages clicks */
+  diamond.removeEventListener("mousedown", clickDiamond);
+
+  /* Animation når der clickes på elementet */
+  diamond.classList.add("paused");
+  diamond.querySelector(".sprite").classList.add("zoom_out");
+  diamond.querySelector(".splash").classList.add("zoom_inout");
+
+  diamond
+    .querySelector(".splash")
+    .addEventListener("animationend", diamondGone);
+  points += 100;
+  console.log("har nu " + points + " point");
+  displayPoints();
+}
+
+function diamondGone() {
+  console.log(this);
+  /* animation restartes*/
+  let splash = this;
+  let container = this.parentElement;
+  let sprite = container.querySelector(".sprite");
+
+  container.classList.remove(
+    "falling1",
+    "falling2",
+    "falling3",
+    "falling4",
+    "falling5"
+  );
+  container.classList.remove("paused");
+  container.offsetWidth;
+  container.classList.add("falling" + pickAnimation());
+  sprite.classList.remove("zoom_out");
+  splash.classList.remove("zoom_inout");
+
+  /* Vi kan clicke igen*/
+  container.addEventListener("mousedown", clickDiamond);
 }
 
 /*KUL*/
 function clickCoal() {
+  let coal = this;
   console.log("clicked2");
   /* Forhindre at der kan gentages clicks */
-  document
-    .querySelector("#coal_container")
-    .removeEventListener("mousedown", clickCoal);
+  coal.removeEventListener("mousedown", clickCoal);
 
   /* Animation når der clickes på elementet */
-  document.querySelector("#coal_container").classList.add("paused");
-  document.querySelector("#coal_sprite").classList.add("zoom_out");
-  document.querySelector("#coal_splash").classList.add("splash");
+  coal.classList.add("paused");
+  coal.querySelector(".sprite").classList.add("zoom_out");
+  coal.querySelector(".splash").classList.add("zoom_inout");
 
   loseLife();
-  document
-    .querySelector("#coal_splash")
-    .addEventListener("animationend", coalGone);
+  coal.querySelector(".splash").addEventListener("animationend", coalGone);
 }
 
 /* Der mistes liv ved at trykke på kul */
@@ -90,35 +194,34 @@ function displaylife() {
     .classList.add("broken_heart");
 }
 
-function incrementPoints() {
-  console.log("Giv point");
-  //   if (points == 5) {
-  //     levelComplete();
-  //   } else {
-  //     displayPoints();
-  //   }
-  points++;
-  console.log("har nu " + points + " point");
-  displayPoints();
-}
-
 function displayPoints() {
   console.log("vis point");
   document.querySelector("#point_count").textContent = points;
+
+  if (points >= 200) {
+  }
 }
 
 function coalGone() {
+  console.log(this);
   /* animation restartes*/
+  let splash = this;
+  let container = this.parentElement;
+  let sprite = container.querySelector(".sprite");
 
-  document.querySelector("#coal_container").classList.remove("falling3");
-  document.querySelector("#coal_container").classList.remove("paused");
-  document.querySelector("#coal_container").offsetWidth;
-  document.querySelector("#coal_container").classList.add("falling3");
-  document.querySelector("#coal_sprite").classList.remove("zoom_out");
-  document.querySelector("#coal_splash").classList.remove("splash");
+  container.classList.remove(
+    "falling1",
+    "falling2",
+    "falling3",
+    "falling4",
+    "falling5"
+  );
+  container.classList.remove("paused");
+  container.offsetWidth;
+  container.classList.add("falling" + pickAnimation());
+  sprite.classList.remove("zoom_out");
+  splash.classList.remove("zoom_inout");
 
   /* Vi kan clicke igen*/
-  document
-    .querySelector("#coal_container")
-    .addEventListener("mousedown", clickCoal);
+  container.addEventListener("mousedown", clickCoal);
 }

@@ -86,7 +86,7 @@
     transform: scale(0) rotate(359deg);
   }
 }
-.splash {
+.zoom_inout {
   animation-name: splash;
   animation-duration: 1s;
   animation-iteration-count: 1;

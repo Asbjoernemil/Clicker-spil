@@ -1,6 +1,6 @@
 "use strict";
 let lives = 3;
-let score = 0;
+let points = 0;
 window.addEventListener("load", start);
 
 /* Animationen startes*/
@@ -9,6 +9,7 @@ function start() {
   console.log("Spillet starter");
   document.querySelector("#gold_container").classList.add("falling2");
   document.querySelector("#coal_container").classList.add("falling3");
+  document.querySelector("#stopwatch_sprite").classList.add("rotate");
 
   document
     .querySelector("#gold_container")
@@ -35,6 +36,7 @@ function clickGold() {
   document
     .querySelector("#gold_splash")
     .addEventListener("animationend", goldGone);
+  incrementPoints();
 }
 
 function goldGone() {
@@ -86,6 +88,23 @@ function displaylife() {
   document
     .querySelector("#minecart_sprite" + lives)
     .classList.add("broken_heart");
+}
+
+function incrementPoints() {
+  console.log("Giv point");
+  //   if (points == 5) {
+  //     levelComplete();
+  //   } else {
+  //     displayPoints();
+  //   }
+  points++;
+  console.log("har nu " + points + " point");
+  displayPoints();
+}
+
+function displayPoints() {
+  console.log("vis point");
+  document.querySelector("#point_count").textContent = points;
 }
 
 function coalGone() {

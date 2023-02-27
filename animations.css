@@ -107,3 +107,17 @@
     transform: scale(0.5);
   }
 }
+.rotate {
+  animation-name: rotate;
+  animation-duration: 60s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}

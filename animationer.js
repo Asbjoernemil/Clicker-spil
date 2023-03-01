@@ -3,7 +3,7 @@ let lives = 3;
 let points = 0;
 window.addEventListener("load", start);
 
-/* Animationen startes*/
+/* ========= Animationen startes =========*/
 
 function start() {
   console.log("Spillet starter");
@@ -13,6 +13,7 @@ function start() {
   addClick();
 }
 
+// ========= Der kan clickes på elementer =========
 function addClick() {
   document
     .querySelector("#gold_container1")
@@ -41,6 +42,7 @@ function addClick() {
     .addEventListener("mousedown", clickDiamond);
 }
 
+// ========= Der kaldes på animationer =========
 function addAnimations() {
   document
     .querySelector("#gold_container1")
@@ -69,12 +71,13 @@ function addAnimations() {
   document.querySelector("#stopwatch_sprite").classList.add("rotate");
 }
 
+// ========= animationer falder random =========
 function pickAnimation() {
-  let num = Math.ceil(Math.random() * 5);
+  let num = Math.ceil(Math.random() * 12);
   return num;
 }
 
-/* GULD */
+/* =========GULD========= */
 function clickGold() {
   let gold = this;
   console.log("clicked");
@@ -94,10 +97,38 @@ function clickGold() {
   displayPoints();
 }
 
+function animationRestart() {
+  console.log("restart");
+  let num = this;
+
+  // Sæt tilfældig position SKAL FJERNES
+  num.classList.remove(
+    "falling1",
+    "falling2",
+    "falling3",
+    "falling4",
+    "falling5",
+    "falling6",
+    "falling7",
+    "falling8",
+    "falling9",
+    "falling10",
+    "falling11",
+    "falling12"
+  );
+  let falling = Math.floor(Math.random() * 12);
+  num.classList.add("falling" + animationRestart());
+
+  num.classList.remove("falling");
+  num.offsetWidth;
+  num.classList.add("falling");
+  num.addEventListener("animationend", animationRestart);
+}
+
 function goldGone() {
   console.log(this);
 
-  /* animation restartes*/
+  /* animation restartes når der clickes*/
   let splash = this;
   let container = this.parentElement;
   let sprite = container.querySelector(".sprite");
@@ -107,7 +138,14 @@ function goldGone() {
     "falling2",
     "falling3",
     "falling4",
-    "falling5"
+    "falling5",
+    "falling6",
+    "falling7",
+    "falling8",
+    "falling9",
+    "falling10",
+    "falling11",
+    "falling12"
   );
   container.classList.remove("paused");
   container.offsetWidth;
@@ -118,7 +156,7 @@ function goldGone() {
   /* Vi kan clicke igen*/
   container.addEventListener("mousedown", clickGold);
 }
-/* DIAMANT */
+/* =========DIAMANT========= */
 function clickDiamond() {
   let diamond = this;
   console.log("clicked");
@@ -129,10 +167,11 @@ function clickDiamond() {
   diamond.classList.add("paused");
   diamond.querySelector(".sprite").classList.add("zoom_out");
   diamond.querySelector(".splash").classList.add("zoom_inout");
-
   diamond
     .querySelector(".splash")
     .addEventListener("animationend", diamondGone);
+
+  // Der tilføjes point
   points += 100;
   console.log("har nu " + points + " point");
   displayPoints();
@@ -140,6 +179,7 @@ function clickDiamond() {
 
 function diamondGone() {
   console.log(this);
+
   /* animation restartes*/
   let splash = this;
   let container = this.parentElement;
@@ -150,7 +190,14 @@ function diamondGone() {
     "falling2",
     "falling3",
     "falling4",
-    "falling5"
+    "falling5",
+    "falling6",
+    "falling7",
+    "falling8",
+    "falling9",
+    "falling10",
+    "falling11",
+    "falling12"
   );
   container.classList.remove("paused");
   container.offsetWidth;
@@ -162,10 +209,11 @@ function diamondGone() {
   container.addEventListener("mousedown", clickDiamond);
 }
 
-/*KUL*/
+/*=========KUL=========*/
 function clickCoal() {
   let coal = this;
   console.log("clicked2");
+
   /* Forhindre at der kan gentages clicks */
   coal.removeEventListener("mousedown", clickCoal);
 
@@ -184,6 +232,7 @@ function loseLife() {
   lives--;
 }
 
+// Liv greyscales
 function displaylife() {
   console.log("heart broken");
   document
@@ -194,6 +243,7 @@ function displaylife() {
     .classList.add("broken_heart");
 }
 
+// Scoreboard
 function displayPoints() {
   console.log("vis point");
   document.querySelector("#point_count").textContent = points;
@@ -214,7 +264,14 @@ function coalGone() {
     "falling2",
     "falling3",
     "falling4",
-    "falling5"
+    "falling5",
+    "falling6",
+    "falling7",
+    "falling8",
+    "falling9",
+    "falling10",
+    "falling11",
+    "falling12"
   );
   container.classList.remove("paused");
   container.offsetWidth;

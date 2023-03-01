@@ -11,6 +11,8 @@ function start() {
   addAnimations();
 
   addClick();
+
+  unClickedEvents();
 }
 
 // ========= Der kan clickes på elementer =========
@@ -42,6 +44,35 @@ function addClick() {
     .addEventListener("mousedown", clickDiamond);
 }
 
+// Når der ikke clickes
+function unClickedEvents() {
+  document
+    .querySelector("#gold_container1")
+    .addEventListener("animationiteration", unClicked);
+  document
+    .querySelector("#gold_container2")
+    .addEventListener("animationiteration", unClicked);
+  document
+    .querySelector("#gold_container3")
+    .addEventListener("animationiteration", unClicked);
+
+  document
+    .querySelector("#coal_container1")
+    .addEventListener("animationiteration", unClicked);
+  document
+    .querySelector("#coal_container2")
+    .addEventListener("animationiteration", unClicked);
+  document
+    .querySelector("#coal_container3")
+    .addEventListener("animationiteration", unClicked);
+  document
+    .querySelector("#diamond_container1")
+    .addEventListener("animationiteration", unClicked);
+  document
+    .querySelector("#diamond_container2")
+    .addEventListener("animationiteration", unClicked);
+}
+
 // ========= Der kaldes på animationer =========
 function addAnimations() {
   document
@@ -69,6 +100,9 @@ function addAnimations() {
     .querySelector("#diamond_container2")
     .classList.add("falling" + pickAnimation());
   document.querySelector("#stopwatch_sprite").classList.add("rotate");
+
+  document.querySelector("#background_music").loop = 6;
+  document.querySelector("#background_music").play();
 }
 
 // ========= animationer falder random =========
@@ -90,6 +124,10 @@ function clickGold() {
   gold.querySelector(".sprite").classList.add("zoom_out");
   gold.querySelector(".splash").classList.add("zoom_inout");
   gold.querySelector(".splash").addEventListener("animationend", goldGone);
+
+  //   lydeffekt når der clickes
+  document.querySelector("#good_element").currentTime = 0;
+  document.querySelector("#good_element").play();
 
   /* Tilføj points */
   points += 50;
@@ -171,6 +209,9 @@ function clickDiamond() {
     .querySelector(".splash")
     .addEventListener("animationend", diamondGone);
 
+  document.querySelector("#good_element").currentTime = 0;
+  document.querySelector("#good_element").play();
+
   // Der tilføjes point
   points += 100;
   console.log("har nu " + points + " point");
@@ -218,12 +259,17 @@ function clickCoal() {
   coal.removeEventListener("mousedown", clickCoal);
 
   /* Animation når der clickes på elementet */
+
   coal.classList.add("paused");
   coal.querySelector(".sprite").classList.add("zoom_out");
   coal.querySelector(".splash").classList.add("zoom_inout");
 
   loseLife();
   coal.querySelector(".splash").addEventListener("animationend", coalGone);
+
+  //   Kig i consolen*****************************************
+  document.querySelector("#bad_element").currentTime = 0;
+  document.querySelector("#bad_element").play();
 }
 
 /* Der mistes liv ved at trykke på kul */
@@ -281,4 +327,28 @@ function coalGone() {
 
   /* Vi kan clicke igen*/
   container.addEventListener("mousedown", clickCoal);
+}
+
+// unClicks falder random
+function unClicked() {
+  console.log(this);
+  /* animation restartes*/
+  let container = this;
+
+  container.classList.remove(
+    "falling1",
+    "falling2",
+    "falling3",
+    "falling4",
+    "falling5",
+    "falling6",
+    "falling7",
+    "falling8",
+    "falling9",
+    "falling10",
+    "falling11",
+    "falling12"
+  );
+  container.offsetWidth;
+  container.classList.add("falling" + pickAnimation());
 }

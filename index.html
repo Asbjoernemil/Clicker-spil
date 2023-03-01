@@ -117,7 +117,9 @@
         </div>
         <div id="game_background" class="position0"></div>
         <div id="game_foreground" class="position0">
-          <img src="img/mining-concept-illustration_1284-8095.png" alt="" />
+          <div id="foreground_img">
+            <img src="img/mining-concept-illustration_1284-8095.png" alt="" />
+          </div>
         </div>
         <div id="game_ui" class="position0">
           <div id="minecart_container">
@@ -153,10 +155,25 @@
           </div>
         </div>
       </div>
-      <div id="start" class="position0"></div>
+      <div id="start" class="position0 hidden">
+        <img src="img/1220592.png" alt="" />
+        <div id="start_btn"><img src="img/play_btn.png" alt="" /></div>
+        <div id="start_intro">
+          <h2>Instructions:</h2>
+          <p>
+            Get 6000$ worth of gold <br />
+            and diamonds before <br />
+            the timer runs out
+          </p>
+        </div>
+      </div>
       <div id="game_over" class="position0 hiddem"></div>
       <div id="level complete" class="position0 hidden"></div>
     </div>
+    <audio id="good_element" src="sounds/cash-register-fake-88639.mp3"></audio>
+    <audio id="bad_element" src="sounds/angry-scream-104974.mp3"></audio>
+    <audio id="background_music" src="sounds/synth-banjo-14463.mp3"></audio>
+
     <script src="animationer.js"></script>
   </body>
 </html>

@@ -33,15 +33,52 @@ body {
   width: 100%;
   position: absolute;
   z-index: 1;
+  overflow: hidden;
 }
-#game_foreground img {
-  translate: 10% 50%;
+#foreground_img {
+  top: 30%;
+  left: 10%;
+  width: 20vw;
+  position: absolute;
+}
+#foreground_img img {
+  width: 100%;
 }
 #start {
   aspect-ratio: inherit;
   width: 100%;
   position: absolute;
+  z-index: 999;
 }
+
+#start img {
+  position: absolute;
+  width: 40%;
+  top: 10%;
+  left: 30%;
+}
+
+#start_intro {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 2.1vw;
+  position: absolute;
+  left: 37%;
+  top: 15%;
+}
+
+#start_btn {
+  aspect-ratio: inherit;
+  width: 100%;
+  position: absolute;
+}
+
+#start_btn img {
+  position: absolute;
+  width: 10%;
+  top: 65%;
+  left: 37%;
+}
+
 #game_over {
   aspect-ratio: inherit;
   width: 100%;
@@ -57,6 +94,7 @@ body {
   width: 100%;
   position: absolute;
   z-index: 4;
+  overflow: hidden;
 }
 #game_elements img {
   width: 100%;
@@ -150,6 +188,7 @@ body {
 }
 #stopwatch_container img {
   width: 100%;
+  filter: drop-shadow(0 0 10px green);
 }
 #dollarsign_container {
   width: 5vw;
@@ -160,7 +199,7 @@ body {
 #point_count {
   grid-row: 1;
   text-align: right;
-  font-size: 110px;
+  font-size: 8vw;
   color: aliceblue;
   position: absolute;
   translate: 5vw;

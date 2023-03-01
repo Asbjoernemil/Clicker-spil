@@ -4,8 +4,14 @@
   animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  animation-delay: 0.1s;
+  transform: scale(0);
 }
 @keyframes falling1 {
+  0%,
+  100% {
+    transform: scale(1);
+  }
   0% {
     transform: translate(50vw, -57vw);
   }
@@ -18,8 +24,15 @@
   animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  animation-delay: 0.2s;
+  transform: scale(0);
 }
 @keyframes falling2 {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
   0% {
     transform: translate(30vw, -57vw);
   }
@@ -32,8 +45,14 @@
   animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  animation-delay: 0.3s;
+  transform: scale(0);
 }
 @keyframes falling3 {
+  0%,
+  100% {
+    transform: scale(1);
+  }
   0% {
     transform: translate(20vw, -57vw);
   }
@@ -46,8 +65,14 @@
   animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  animation-delay: 0.4s;
+  transform: scale(0);
 }
 @keyframes falling4 {
+  0%,
+  100% {
+    transform: scale(1);
+  }
   0% {
     transform: translate(0, -57vw);
   }
@@ -60,8 +85,14 @@
   animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  animation-delay: 0.6s;
+  transform: scale(0);
 }
 @keyframes falling5 {
+  0%,
+  100% {
+    transform: scale(1);
+  }
   0% {
     transform: translate(60vw, -57vw);
   }
@@ -74,8 +105,14 @@
   animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  animation-delay: 0.7s;
+  transform: scale(0);
 }
 @keyframes falling6 {
+  0%,
+  100% {
+    transform: scale(1);
+  }
   0% {
     transform: translate(70vw, -57vw);
   }
@@ -88,8 +125,14 @@
   animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  animation-delay: 0.4s;
+  transform: scale(0);
 }
 @keyframes falling7 {
+  0%,
+  100% {
+    transform: scale(1);
+  }
   0% {
     transform: translate(75vw, -57vw);
   }
@@ -102,8 +145,14 @@
   animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  animation-delay: 0.8s;
+  transform: scale(0);
 }
 @keyframes falling8 {
+  0%,
+  100% {
+    transform: scale(1);
+  }
   0% {
     transform: translate(80vw, -57vw);
   }
@@ -116,8 +165,14 @@
   animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  animation-delay: 0.6s;
+  transform: scale(0);
 }
 @keyframes falling9 {
+  0%,
+  100% {
+    transform: scale(1);
+  }
   0% {
     transform: translate(85vw, -57vw);
   }
@@ -130,8 +185,14 @@
   animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  animation-delay: 0.9s;
+  transform: scale(0);
 }
 @keyframes falling10 {
+  0%,
+  100% {
+    transform: scale(1);
+  }
   0% {
     transform: translate(90vw, -57vw);
   }
@@ -144,8 +205,14 @@
   animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  animation-delay: 0.3s;
+  transform: scale(0);
 }
 @keyframes falling11 {
+  0%,
+  100% {
+    transform: scale(1);
+  }
   0% {
     transform: translate(94vw, -57vw);
   }
@@ -158,8 +225,14 @@
   animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  animation-delay: 0.5s;
+  transform: scale(0);
 }
 @keyframes falling12 {
+  0%,
+  100% {
+    transform: scale(1);
+  }
   0% {
     transform: translate(97vw, -57vw);
   }

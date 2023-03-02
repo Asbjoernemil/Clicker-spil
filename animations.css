@@ -285,15 +285,28 @@
 /* ========= Stopwatch animation ========= */
 .rotate {
   animation-name: rotate;
-  animation-duration: 60s;
+  animation-duration: 10s;
   animation-iteration-count: 1;
   animation-timing-function: linear;
 }
 @keyframes rotate {
   0% {
-    transform: rotate(0deg);
+    filter: drop-shadow(0 0 10px green);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px green);
+  }
+  75% {
+    filter: drop-shadow(0 0 10px yellow);
   }
   100% {
-    transform: rotate(359deg);
+    filter: drop-shadow(0 0 10px red);
+  }
+  0% {
+    rotate: 0deg;
+  }
+
+  100% {
+    rotate: 359deg;
   }
 }

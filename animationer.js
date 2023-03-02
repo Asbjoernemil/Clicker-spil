@@ -1,18 +1,88 @@
 "use strict";
-let lives = 3;
+let lives = 0;
 let points = 0;
-window.addEventListener("load", start);
+window.addEventListener("load", ready);
+
+function ready() {
+  console.log("game ready");
+  //   startskræm
+  document.querySelector("#start_btn").addEventListener("click", start);
+  document
+    .querySelector("#gameOver_btn")
+    .addEventListener("click", showStartScreen);
+  //   document
+  //     .querySelector("#level_complete_btn")
+  //     .addEventListener("click", showStartScreen);
+  document.querySelector("#start").classList.remove("hidden");
+}
+
+function showGameScreen() {
+  // Skjul startskærm, game over og level complete
+  document.querySelector("#start").classList.add("hidden");
+  document.querySelector("#game_over").classList.add("hidden");
+  document.querySelector("#level_complete").classList.add("hidden");
+}
+
+function showStartScreen() {
+  // fjern hidden fra startskærm og tilføj til game over og level complete
+  document.querySelector("#start").classList.remove("hidden");
+  document.querySelector("#game_over").classList.add("hidden");
+  document.querySelector("#level_complete").classList.add("hidden");
+  resetLives();
+}
+
+function resetPoints() {
+  // nulstil point
+  points = 0;
+  // nulstil vising af point
+  displayPoints();
+}
+
+function resetLives() {
+  // sæt lives til 3
+  lives = 3;
+
+  //nulstil visning
+  document.querySelector("#minecart_sprite1").classList.add("active_heart");
+  document.querySelector("#minecart_sprite1").classList.remove("broken_heart");
+  document.querySelector("#minecart_sprite2").classList.add("active_heart");
+  document.querySelector("#minecart_sprite2").classList.remove("broken_heart");
+  document.querySelector("#minecart_sprite3").classList.add("active_heart");
+  document.querySelector("#minecart_sprite3").classList.remove("broken_heart");
+}
 
 /* ========= Animationen startes =========*/
-
 function start() {
+  lives = 3;
+  points = 0;
   console.log("Spillet starter");
+
+  document.querySelector("#start").classList.add("hidden");
+
+  resetPoints();
+
+  resetLives();
 
   addAnimations();
 
   addClick();
 
   unClickedEvents();
+
+  startTimer();
+
+  addHiddenElements();
+}
+
+function addHiddenElements() {
+  document.querySelector("#diamond_container1").classList.remove("hidden");
+  document.querySelector("#diamond_container2").classList.remove("hidden");
+  document.querySelector("#gold_container1").classList.remove("hidden");
+  document.querySelector("#gold_container2").classList.remove("hidden");
+  document.querySelector("#gold_container3").classList.remove("hidden");
+  document.querySelector("#coal_container1").classList.remove("hidden");
+  document.querySelector("#coal_container2").classList.remove("hidden");
+  document.querySelector("#coal_container3").classList.remove("hidden");
 }
 
 // ========= Der kan clickes på elementer =========
@@ -99,10 +169,20 @@ function addAnimations() {
   document
     .querySelector("#diamond_container2")
     .classList.add("falling" + pickAnimation());
+}
+
+function startTimer() {
+  document.querySelector("#stopwatch_sprite").classList.remove("rotate");
+  document.querySelector("#stopwatch_sprite").offsetWidth;
   document.querySelector("#stopwatch_sprite").classList.add("rotate");
 
+  document.querySelector("#background_music").currentTime = 0;
   document.querySelector("#background_music").loop = 6;
   document.querySelector("#background_music").play();
+
+  document
+    .querySelector("#stopwatch_sprite")
+    .addEventListener("animationend", timeOut);
 }
 
 // ========= animationer falder random =========
@@ -133,6 +213,14 @@ function clickGold() {
   points += 50;
   console.log("har nu " + points + " point");
   displayPoints();
+}
+
+function timeOut() {
+  if (points >= 400) {
+    levelComplete();
+  } else {
+    gameOver();
+  }
 }
 
 function animationRestart() {
@@ -276,6 +364,10 @@ function clickCoal() {
 function loseLife() {
   displaylife();
   lives--;
+
+  if (lives === 0) {
+    gameOver();
+  }
 }
 
 // Liv greyscales
@@ -351,4 +443,120 @@ function unClicked() {
   );
   container.offsetWidth;
   container.classList.add("falling" + pickAnimation());
+}
+
+function levelComplete() {
+  console.log("Level Complete");
+  document.querySelector("#level_complete").classList.remove("hidden");
+  stopGame();
+
+  document.querySelector("#win").currentTime = 0;
+  document.querySelector("#win").play();
+}
+
+function gameOver() {
+  console.log("Game Over");
+  document.querySelector("#game_over").classList.remove("hidden");
+  stopGame();
+  document.querySelector("#gameOver_btn").addEventListener("click", start);
+  document.querySelector("#lose").currentTime = 0;
+  document.querySelector("#lose").play();
+}
+
+function hideElements() {
+  document.querySelector("#diamond_container1").classList.add("hidden");
+  document.querySelector("#diamond_container2").classList.add("hidden");
+  document.querySelector("#gold_container1").classList.add("hidden");
+  document.querySelector("#gold_container2").classList.add("hidden");
+  document.querySelector("#gold_container3").classList.add("hidden");
+  document.querySelector("#coal_container1").classList.add("hidden");
+  document.querySelector("#coal_container2").classList.add("hidden");
+  document.querySelector("#coal_container3").classList.add("hidden");
+}
+
+function stopGame() {
+  // Fjern click
+  document
+    .querySelector("#gold_container1")
+    .removeEventListener("mousedown", clickGold);
+  document
+    .querySelector("#gold_container2")
+    .removeEventListener("mousedown", clickGold);
+  document
+    .querySelector("#gold_container3")
+    .removeEventListener("mousedown", clickGold);
+
+  document
+    .querySelector("#coal_container1")
+    .removeEventListener("mousedown", clickCoal);
+  document
+    .querySelector("#coal_container2")
+    .removeEventListener("mousedown", clickCoal);
+  document
+    .querySelector("#coal_container3")
+    .removeEventListener("mousedown", clickCoal);
+  document
+    .querySelector("#diamond_container1")
+    .removeEventListener("mousedown", clickDiamond);
+  document
+    .querySelector("#diamond_container2")
+    .removeEventListener("mousedown", clickDiamond);
+
+  // Fjern animationer
+  document
+    .querySelector("#gold_container1")
+    .classList.remove("falling" + pickAnimation());
+  document
+    .querySelector("#gold_container2")
+    .classList.remove("falling" + pickAnimation());
+  document
+    .querySelector("#gold_container3")
+    .classList.remove("falling" + pickAnimation());
+  document
+    .querySelector("#coal_container1")
+    .classList.remove("falling" + pickAnimation());
+  document
+    .querySelector("#coal_container2")
+    .classList.remove("falling" + pickAnimation());
+  document
+    .querySelector("#coal_container3")
+    .classList.remove("falling" + pickAnimation());
+  document
+    .querySelector("#diamond_container1")
+    .classList.remove("falling" + pickAnimation());
+  document
+    .querySelector("#diamond_container2")
+    .classList.remove("falling" + pickAnimation());
+
+  document
+    .querySelector("#gold_container1")
+    .removeEventListener("animationiteration", unClicked);
+  document
+    .querySelector("#gold_container2")
+    .removeEventListener("animationiteration", unClicked);
+  document
+    .querySelector("#gold_container3")
+    .removeEventListener("animationiteration", unClicked);
+
+  document
+    .querySelector("#coal_container1")
+    .removeEventListener("animationiteration", unClicked);
+  document
+    .querySelector("#coal_container2")
+    .removeEventListener("animationiteration", unClicked);
+  document
+    .querySelector("#coal_container3")
+    .removeEventListener("animationiteration", unClicked);
+  document
+    .querySelector("#diamond_container1")
+    .removeEventListener("animationiteration", unClicked);
+  document
+    .querySelector("#diamond_container2")
+    .removeEventListener("animationiteration", unClicked);
+
+  // fjern musik
+  document.querySelector("#background_music").currentTime = 0;
+  document.querySelector("#background_music").pause();
+
+  hideElements();
 }

@@ -67,28 +67,63 @@ body {
 }
 
 #start_btn {
-  aspect-ratio: inherit;
   width: 100%;
   position: absolute;
+  z-index: 1;
+  cursor: pointer;
+  top: 65%;
 }
 
 #start_btn img {
   position: absolute;
   width: 10%;
-  top: 65%;
+  top: 10%;
   left: 37%;
+  z-index: 1;
 }
 
 #game_over {
   aspect-ratio: inherit;
   width: 100%;
   position: absolute;
+  z-index: 999;
 }
+
+#game_over img {
+  position: absolute;
+  width: 45%;
+  top: 25%;
+  left: 27%;
+}
+
+#gameOver_btn {
+  width: 100%;
+  position: absolute;
+  z-index: 999;
+  cursor: pointer;
+  left: 15%;
+  top: 80%;
+}
+
+#gameOver_btn img {
+  position: absolute;
+  width: 15%;
+}
+
 #level_complete {
   aspect-ratio: inherit;
   width: 100%;
   position: absolute;
+  z-index: 999;
 }
+
+#level_complete img {
+  position: absolute;
+  width: 50%;
+  top: 10%;
+  left: 25%;
+}
+
 #game_elements {
   aspect-ratio: inherit;
   width: 100%;
@@ -188,8 +223,8 @@ body {
 }
 #stopwatch_container img {
   width: 100%;
-  filter: drop-shadow(0 0 10px green);
 }
+
 #dollarsign_container {
   width: 5vw;
   grid-column: 1/3;
@@ -210,6 +245,10 @@ body {
   width: 100%;
 }
 .hidden {
+  display: none;
+}
+
+.hidden_splash {
   opacity: 0;
 }
 .splash {

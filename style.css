@@ -78,7 +78,7 @@ body {
   position: absolute;
   width: 10%;
   top: 10%;
-  left: 37%;
+  left: 38%;
   z-index: 1;
 }
 
@@ -122,6 +122,20 @@ body {
   width: 50%;
   top: 10%;
   left: 25%;
+}
+
+#levelComplete_btn {
+  width: 100%;
+  position: absolute;
+  z-index: 999;
+  cursor: pointer;
+  left: 17%;
+  top: 85%;
+}
+
+#levelComplete_btn img {
+  position: absolute;
+  width: 15%;
 }
 
 #game_elements {

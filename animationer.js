@@ -7,12 +7,18 @@ function ready() {
   console.log("game ready");
   //   startskræm
   document.querySelector("#start_btn").addEventListener("click", start);
+  document.querySelector("#start_btn").classList.add("pulse");
+
   document
     .querySelector("#gameOver_btn")
     .addEventListener("click", showStartScreen);
-  //   document
-  //     .querySelector("#level_complete_btn")
-  //     .addEventListener("click", showStartScreen);
+  document.querySelector("#gameOver_btn").classList.add("pulse");
+
+  document
+    .querySelector("#levelComplete_btn")
+    .addEventListener("click", showStartScreen);
+  document.querySelector("#levelComplete_btn").classList.add("pulse");
+
   document.querySelector("#start").classList.remove("hidden");
 }
 
@@ -464,6 +470,7 @@ function gameOver() {
 }
 
 function hideElements() {
+  // Skjul elementer
   document.querySelector("#diamond_container1").classList.add("hidden");
   document.querySelector("#diamond_container2").classList.add("hidden");
   document.querySelector("#gold_container1").classList.add("hidden");

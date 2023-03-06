@@ -35,6 +35,7 @@ function showStartScreen() {
   document.querySelector("#game_over").classList.add("hidden");
   document.querySelector("#level_complete").classList.add("hidden");
   resetLives();
+  resetPoints();
 }
 
 function resetPoints() {
@@ -195,10 +196,47 @@ function stopTimer() {
   document.querySelector("#stopwatch_sprite").classList.remove("rotate");
 }
 
+function timeOut() {
+  if (points >= 2000) {
+    levelComplete();
+  } else {
+    gameOver();
+  }
+}
+
 // ========= animationer falder random =========
 function pickAnimation() {
   let num = Math.ceil(Math.random() * 12);
   return num;
+}
+
+function animationRestart() {
+  // ===============fjern????
+  console.log("restart");
+  let num = this;
+
+  // Sæt tilfældig position
+  num.classList.remove(
+    "falling1",
+    "falling2",
+    "falling3",
+    "falling4",
+    "falling5",
+    "falling6",
+    "falling7",
+    "falling8",
+    "falling9",
+    "falling10",
+    "falling11",
+    "falling12"
+  );
+  let falling = Math.floor(Math.random() * 12);
+  num.classList.add("falling" + animationRestart());
+
+  num.classList.remove("falling");
+  num.offsetWidth;
+  num.classList.add("falling");
+  num.addEventListener("animationend", animationRestart);
 }
 
 /* =========GULD========= */
@@ -223,42 +261,6 @@ function clickGold() {
   points += 50;
   console.log("har nu " + points + " point");
   displayPoints();
-}
-
-function timeOut() {
-  if (points >= 2000) {
-    levelComplete();
-  } else {
-    gameOver();
-  }
-}
-
-function animationRestart() {
-  console.log("restart");
-  let num = this;
-
-  // Sæt tilfældig position SKAL FJERNES
-  num.classList.remove(
-    "falling1",
-    "falling2",
-    "falling3",
-    "falling4",
-    "falling5",
-    "falling6",
-    "falling7",
-    "falling8",
-    "falling9",
-    "falling10",
-    "falling11",
-    "falling12"
-  );
-  let falling = Math.floor(Math.random() * 12);
-  num.classList.add("falling" + animationRestart());
-
-  num.classList.remove("falling");
-  num.offsetWidth;
-  num.classList.add("falling");
-  num.addEventListener("animationend", animationRestart);
 }
 
 function goldGone() {
@@ -370,6 +372,37 @@ function clickCoal() {
   document.querySelector("#bad_element").play();
 }
 
+function coalGone() {
+  console.log(this);
+  /* animation restartes*/
+  let splash = this;
+  let container = this.parentElement;
+  let sprite = container.querySelector(".sprite");
+
+  container.classList.remove(
+    "falling1",
+    "falling2",
+    "falling3",
+    "falling4",
+    "falling5",
+    "falling6",
+    "falling7",
+    "falling8",
+    "falling9",
+    "falling10",
+    "falling11",
+    "falling12"
+  );
+  container.classList.remove("paused");
+  container.offsetWidth;
+  container.classList.add("falling" + pickAnimation());
+  sprite.classList.remove("zoom_out");
+  splash.classList.remove("zoom_inout");
+
+  /* Vi kan clicke igen*/
+  container.addEventListener("mousedown", clickCoal);
+}
+
 /* Der mistes liv ved at trykke på kul */
 function loseLife() {
   displaylife();
@@ -406,37 +439,6 @@ function score() {
 
   if (points >= 200) {
   }
-}
-
-function coalGone() {
-  console.log(this);
-  /* animation restartes*/
-  let splash = this;
-  let container = this.parentElement;
-  let sprite = container.querySelector(".sprite");
-
-  container.classList.remove(
-    "falling1",
-    "falling2",
-    "falling3",
-    "falling4",
-    "falling5",
-    "falling6",
-    "falling7",
-    "falling8",
-    "falling9",
-    "falling10",
-    "falling11",
-    "falling12"
-  );
-  container.classList.remove("paused");
-  container.offsetWidth;
-  container.classList.add("falling" + pickAnimation());
-  sprite.classList.remove("zoom_out");
-  splash.classList.remove("zoom_inout");
-
-  /* Vi kan clicke igen*/
-  container.addEventListener("mousedown", clickCoal);
 }
 
 // unClicks falder random

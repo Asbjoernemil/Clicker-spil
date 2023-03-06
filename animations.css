@@ -245,6 +245,7 @@
 .paused {
   animation-play-state: paused;
 }
+
 .zoom_out {
   animation-name: zoom_out;
   animation-duration: 0.5s;
@@ -260,6 +261,7 @@
     transform: scale(0) rotate(359deg);
   }
 }
+
 .zoom_inout {
   animation-name: zoom_inout;
   animation-duration: 1s;
@@ -322,5 +324,40 @@
 @keyframes pulse {
   100% {
     transform: scale(1.1);
+  }
+}
+
+.zoom_in {
+  animation-name: zoom_in;
+  animation-duration: 1.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+@keyframes zoom_in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.zoom_in2 {
+  animation-name: zoom_in2;
+  animation-duration: 1.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+@keyframes zoom_in2 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
   }
 }

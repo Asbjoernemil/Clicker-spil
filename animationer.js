@@ -191,6 +191,10 @@ function startTimer() {
     .addEventListener("animationend", timeOut);
 }
 
+function stopTimer() {
+  document.querySelector("#stopwatch_sprite").classList.remove("rotate");
+}
+
 // ========= animationer falder random =========
 function pickAnimation() {
   let num = Math.ceil(Math.random() * 12);
@@ -222,7 +226,7 @@ function clickGold() {
 }
 
 function timeOut() {
-  if (points >= 400) {
+  if (points >= 2000) {
     levelComplete();
   } else {
     gameOver();
@@ -396,6 +400,14 @@ function displayPoints() {
   }
 }
 
+function score() {
+  console.log("vis point");
+  document.querySelector("#score").textContent = points;
+
+  if (points >= 200) {
+  }
+}
+
 function coalGone() {
   console.log(this);
   /* animation restartes*/
@@ -453,7 +465,9 @@ function unClicked() {
 
 function levelComplete() {
   console.log("Level Complete");
+  document.querySelector("#level_complete").classList.add("zoom_in2");
   document.querySelector("#level_complete").classList.remove("hidden");
+  score();
   stopGame();
 
   document.querySelector("#win").currentTime = 0;
@@ -462,9 +476,13 @@ function levelComplete() {
 
 function gameOver() {
   console.log("Game Over");
+  document.querySelector("#game_over").classList.add("zoom_in");
   document.querySelector("#game_over").classList.remove("hidden");
   stopGame();
-  document.querySelector("#gameOver_btn").addEventListener("click", start);
+  document
+    .querySelector("#gameOver_btn")
+    .addEventListener("click", showStartScreen);
+
   document.querySelector("#lose").currentTime = 0;
   document.querySelector("#lose").play();
 }
@@ -566,4 +584,5 @@ function stopGame() {
   document.querySelector("#background_music").pause();
 
   hideElements();
+  stopTimer();
 }

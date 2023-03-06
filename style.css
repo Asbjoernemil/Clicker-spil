@@ -255,6 +255,16 @@ body {
   filter: drop-shadow(0 0 9px green);
 }
 
+#score {
+  top: 64%;
+  left: 47%;
+  font-size: 5vw;
+  color: rgb(65, 66, 66);
+  position: absolute;
+  translate: 5vw;
+  filter: drop-shadow(0 0 9px rgb(21, 23, 21));
+}
+
 #dollarsign_container img {
   width: 100%;
 }

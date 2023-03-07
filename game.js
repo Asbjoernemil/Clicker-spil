@@ -210,35 +210,6 @@ function pickAnimation() {
   return num;
 }
 
-function animationRestart() {
-  // ===============fjern????
-  console.log("restart");
-  let num = this;
-
-  // Sæt tilfældig position
-  num.classList.remove(
-    "falling1",
-    "falling2",
-    "falling3",
-    "falling4",
-    "falling5",
-    "falling6",
-    "falling7",
-    "falling8",
-    "falling9",
-    "falling10",
-    "falling11",
-    "falling12"
-  );
-  let falling = Math.floor(Math.random() * 12);
-  num.classList.add("falling" + animationRestart());
-
-  num.classList.remove("falling");
-  num.offsetWidth;
-  num.classList.add("falling");
-  num.addEventListener("animationend", animationRestart);
-}
-
 /* =========GULD========= */
 function clickGold() {
   let gold = this;

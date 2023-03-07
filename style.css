@@ -1,3 +1,7 @@
+* {
+  user-select: none;
+}
+
 #screen {
   aspect-ratio: 16/9;
   width: 100vw;

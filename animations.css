@@ -313,6 +313,7 @@
   }
 }
 
+/* Alle play buttons */
 .pulse {
   animation-name: pulse;
   animation-duration: 1s;
@@ -327,6 +328,7 @@
   }
 }
 
+/* Game over */
 .zoom_in {
   animation-name: zoom_in;
   animation-duration: 1.5s;
@@ -346,6 +348,7 @@
   }
 }
 
+/* Level complete */
 .zoom_in2 {
   animation-name: zoom_in2;
   animation-duration: 1.5s;

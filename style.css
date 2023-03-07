@@ -16,15 +16,18 @@ body {
   aspect-ratio: 16/9;
   overflow: hidden;
 }
+
 .position0 {
   top: 0;
   left: 0;
 }
+
 #game {
   aspect-ratio: inherit;
   width: 100%;
   position: absolute;
 }
+
 #game_background {
   aspect-ratio: 16/9;
   width: 100%;
@@ -32,6 +35,7 @@ body {
   background-image: url(img/2108.q703.021.F.m004.c7.mining\ miner\ cartoon.jpg);
   background-size: 88%;
 }
+
 #game_foreground {
   aspect-ratio: inherit;
   width: 100%;
@@ -39,15 +43,18 @@ body {
   z-index: 1;
   overflow: hidden;
 }
+
 #foreground_img {
   top: 30%;
   left: 10%;
   width: 20vw;
   position: absolute;
 }
+
 #foreground_img img {
   width: 100%;
 }
+
 #start {
   aspect-ratio: inherit;
   width: 100%;
@@ -149,9 +156,11 @@ body {
   z-index: 4;
   overflow: hidden;
 }
+
 #game_elements img {
   width: 100%;
 }
+
 #gold_container1 {
   top: 0;
   width: 5vw;
@@ -159,6 +168,7 @@ body {
   z-index: 5;
   cursor: pointer;
 }
+
 #gold_container2 {
   top: 0;
   width: 5vw;
@@ -166,6 +176,7 @@ body {
   z-index: 5;
   cursor: pointer;
 }
+
 #gold_container3 {
   top: 0;
   width: 5vw;
@@ -173,6 +184,7 @@ body {
   z-index: 5;
   cursor: pointer;
 }
+
 #diamond_container1 {
   top: 0;
   width: 6vw;
@@ -180,6 +192,7 @@ body {
   z-index: 5;
   cursor: pointer;
 }
+
 #diamond_container2 {
   top: 0;
   width: 6vw;
@@ -187,6 +200,7 @@ body {
   z-index: 5;
   cursor: pointer;
 }
+
 #diamond_container3 {
   top: 0;
   width: 6vw;
@@ -194,6 +208,7 @@ body {
   z-index: 5;
   cursor: pointer;
 }
+
 #coal_container1 {
   top: 0;
   width: 6vw;
@@ -201,6 +216,7 @@ body {
   z-index: 5;
   cursor: pointer;
 }
+
 #coal_container2 {
   top: 0;
   width: 6vw;
@@ -208,6 +224,7 @@ body {
   z-index: 5;
   cursor: pointer;
 }
+
 #coal_container3 {
   top: 0;
   width: 6vw;
@@ -215,6 +232,7 @@ body {
   z-index: 5;
   cursor: pointer;
 }
+
 #game_ui {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
@@ -224,21 +242,25 @@ body {
   position: absolute;
   z-index: 3;
 }
+
 #minecart_container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   width: 30vw;
   grid-column: 3/3;
 }
+
 #minecart_container img {
   width: 100%;
 }
+
 #stopwatch_container {
   width: 7vw;
   grid-column: 2/3;
   grid-row: 1;
   transform: rotate(332deg);
 }
+
 #stopwatch_container img {
   width: 100%;
 }
@@ -272,6 +294,7 @@ body {
 #dollarsign_container img {
   width: 100%;
 }
+
 .hidden {
   display: none;
 }
@@ -279,6 +302,7 @@ body {
 .hidden_splash {
   opacity: 0;
 }
+
 .splash {
   position: absolute;
 }
@@ -286,6 +310,7 @@ body {
 .active_heart {
   filter: drop-shadow(0 0 6px yellow);
 }
+
 .broken_heart {
   filter: grayscale(85%) blur(0.5px);
 }

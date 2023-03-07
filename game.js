@@ -5,6 +5,7 @@ window.addEventListener("load", ready);
 
 function ready() {
   console.log("game ready");
+
   //   startskræm
   document.querySelector("#start_btn").addEventListener("click", start);
   document.querySelector("#start_btn").classList.add("pulse");
@@ -30,6 +31,8 @@ function showGameScreen() {
 }
 
 function showStartScreen() {
+  console.log("Startscreen");
+
   // fjern hidden fra startskærm og tilføj til game over og level complete
   document.querySelector("#start").classList.remove("hidden");
   document.querySelector("#game_over").classList.add("hidden");
@@ -39,6 +42,8 @@ function showStartScreen() {
 }
 
 function resetPoints() {
+  console.log("reset point");
+
   // nulstil point
   points = 0;
   // nulstil vising af point
@@ -46,6 +51,8 @@ function resetPoints() {
 }
 
 function resetLives() {
+  console.log("reset lives");
+
   // sæt lives til 3
   lives = 3;
 
@@ -58,11 +65,12 @@ function resetLives() {
   document.querySelector("#minecart_sprite3").classList.remove("broken_heart");
 }
 
-/* ========= Animationen startes =========*/
 function start() {
+  console.log("Spillet starter");
+
+  /* ========= Animationen startes =========*/
   lives = 3;
   points = 0;
-  console.log("Spillet starter");
 
   document.querySelector("#start").classList.add("hidden");
 
@@ -92,8 +100,9 @@ function addHiddenElements() {
   document.querySelector("#coal_container3").classList.remove("hidden");
 }
 
-// ========= Der kan clickes på elementer =========
 function addClick() {
+  // ========= Der kan clickes på elementer =========
+
   document
     .querySelector("#gold_container1")
     .addEventListener("mousedown", clickGold);
@@ -121,8 +130,9 @@ function addClick() {
     .addEventListener("mousedown", clickDiamond);
 }
 
-// Når der ikke clickes
 function unClickedEvents() {
+  // Når der ikke clickes
+
   document
     .querySelector("#gold_container1")
     .addEventListener("animationiteration", unClicked);
@@ -150,8 +160,10 @@ function unClickedEvents() {
     .addEventListener("animationiteration", unClicked);
 }
 
-// ========= Der kaldes på animationer =========
 function addAnimations() {
+  console.log("add animation");
+
+  // ========= Der kaldes på animationer =========
   document
     .querySelector("#gold_container1")
     .classList.add("falling" + pickAnimation());
@@ -179,10 +191,14 @@ function addAnimations() {
 }
 
 function startTimer() {
+  console.log("start timer");
+
+  // Timer startes
   document.querySelector("#stopwatch_sprite").classList.remove("rotate");
   document.querySelector("#stopwatch_sprite").offsetWidth;
   document.querySelector("#stopwatch_sprite").classList.add("rotate");
 
+  // Musik startes når timer startes
   document.querySelector("#background_music").currentTime = 0;
   document.querySelector("#background_music").loop = 6;
   document.querySelector("#background_music").play();
@@ -193,10 +209,14 @@ function startTimer() {
 }
 
 function stopTimer() {
+  console.log("timer stopped");
+
+  // Timer stoppes ved game over
   document.querySelector("#stopwatch_sprite").classList.remove("rotate");
 }
 
 function timeOut() {
+  // Når tiden er løbet ud
   if (points >= 2000) {
     levelComplete();
   } else {
@@ -204,16 +224,18 @@ function timeOut() {
   }
 }
 
-// ========= animationer falder random =========
 function pickAnimation() {
+  console.log("pick animation");
+
+  // ========= animationer falder random =========
   let num = Math.ceil(Math.random() * 12);
   return num;
 }
 
-/* =========GULD========= */
 function clickGold() {
+  /* =========GULD========= */
   let gold = this;
-  console.log("clicked");
+  console.log("Gold clicked");
 
   /* Forhindre at der kan gentages clicks */
   gold.removeEventListener("mousedown", clickGold);
@@ -235,6 +257,7 @@ function clickGold() {
 }
 
 function goldGone() {
+  console.log("Gold Gone");
   console.log(this);
 
   /* animation restartes når der clickes*/
@@ -265,10 +288,12 @@ function goldGone() {
   /* Vi kan clicke igen*/
   container.addEventListener("mousedown", clickGold);
 }
-/* =========DIAMANT========= */
+
 function clickDiamond() {
+  /* =========DIAMANT========= */
   let diamond = this;
-  console.log("clicked");
+  console.log("Diamond clicked");
+
   /* Forhindre at der kan gentages clicks */
   diamond.removeEventListener("mousedown", clickDiamond);
 
@@ -290,6 +315,7 @@ function clickDiamond() {
 }
 
 function diamondGone() {
+  console.log("Diamond Gone");
   console.log(this);
 
   /* animation restartes*/
@@ -321,20 +347,20 @@ function diamondGone() {
   container.addEventListener("mousedown", clickDiamond);
 }
 
-/*=========KUL=========*/
 function clickCoal() {
+  /*=========KUL=========*/
   let coal = this;
-  console.log("clicked2");
+  console.log("Coal clicked");
 
   /* Forhindre at der kan gentages clicks */
   coal.removeEventListener("mousedown", clickCoal);
 
   /* Animation når der clickes på elementet */
-
   coal.classList.add("paused");
   coal.querySelector(".sprite").classList.add("zoom_out");
   coal.querySelector(".splash").classList.add("zoom_inout");
 
+  // Mist liv
   loseLife();
   coal.querySelector(".splash").addEventListener("animationend", coalGone);
 
@@ -344,7 +370,9 @@ function clickCoal() {
 }
 
 function coalGone() {
+  console.log("Coal gone");
   console.log(this);
+
   /* animation restartes*/
   let splash = this;
   let container = this.parentElement;
@@ -374,8 +402,9 @@ function coalGone() {
   container.addEventListener("mousedown", clickCoal);
 }
 
-/* Der mistes liv ved at trykke på kul */
 function loseLife() {
+  /* Der mistes liv ved at trykke på kul */
+  console.log("mist liv");
   displaylife();
   lives--;
 
@@ -384,9 +413,10 @@ function loseLife() {
   }
 }
 
-// Liv greyscales
 function displaylife() {
+  // Liv greyscales
   console.log("heart broken");
+
   document
     .querySelector("#minecart_sprite" + lives)
     .classList.remove("active_heart");
@@ -395,8 +425,8 @@ function displaylife() {
     .classList.add("broken_heart");
 }
 
-// Scoreboard
 function displayPoints() {
+  // Scoreboard
   console.log("vis point");
   document.querySelector("#point_count").textContent = points;
 
@@ -405,16 +435,17 @@ function displayPoints() {
 }
 
 function score() {
-  console.log("vis point");
+  console.log("vis point lvl compl.");
   document.querySelector("#score").textContent = points;
 
   if (points >= 200) {
   }
 }
 
-// unClicks falder random
 function unClicked() {
+  // unClicks falder random
   console.log(this);
+
   /* animation restartes*/
   let container = this;
 
@@ -473,6 +504,8 @@ function hideElements() {
 }
 
 function stopGame() {
+  console.log("Stop Game");
+
   // Fjern click
   document
     .querySelector("#gold_container1")
